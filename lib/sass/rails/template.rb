@@ -43,7 +43,7 @@ module Sass
 
         sass_config = context.sass_config.merge(options)
 
-        engine = ::Sass::Engine.new(data, sass_config)
+        engine = ::SassC::Engine.new(data, sass_config)
         css = engine.render
 
         engine.dependencies.map do |dependency|

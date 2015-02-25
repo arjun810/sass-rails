@@ -34,7 +34,7 @@ module Sass
               contents << "@import #{filename.inspect};\n"
             end
             return nil if contents == ""
-            Sass::Engine.new(contents, options.merge(
+            SassC::Engine.new(contents, options.merge(
               :filename => base,
               :importer => self,
               :syntax => :scss
@@ -89,7 +89,7 @@ module Sass
               template = Tilt::ERBTemplate.new(engine.options[:filename])
               contents = template.render(engine.options[:sprockets][:context], {})
 
-              Sass::Engine.new(contents, engine.options.merge(:syntax => syntax))
+              SassC::Engine.new(contents, engine.options.merge(:syntax => syntax))
             else
               engine
             end
